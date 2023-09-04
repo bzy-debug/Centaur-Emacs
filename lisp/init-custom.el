@@ -125,7 +125,7 @@
                     centaur-package-archives-alist)))
 
 (defcustom centaur-theme-alist
-  '((default . doom-one)
+  '((default . ef-light)
     (pro     . doom-monokai-pro)
     (dark    . doom-vibrant)
     (light   . doom-one-light)
@@ -151,8 +151,8 @@ For example:
   :type '(alist :key-type (string :tag "Time")
                 :value-type (symbol :tag "Theme")))
 
-(defcustom centaur-system-themes '((light . doom-one-light)
-				                   (dark  . doom-one))
+(defcustom centaur-system-themes '((light . ef-light)
+				                   (dark  . ef-dark))
   "List of themes related the system appearance.
 
 It's only available on macOS currently."
