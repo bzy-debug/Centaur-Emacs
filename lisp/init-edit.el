@@ -158,28 +158,28 @@
   :hook (after-init . ace-pinyin-global-mode))
 
 ;; Minor mode to aggressively keep your code always indented
-(use-package aggressive-indent
-  :diminish
-  :hook ((after-init . global-aggressive-indent-mode)
-         ;; NOTE: Disable in large files due to the performance issues
-         ;; https://github.com/Malabarba/aggressive-indent-mode/issues/73
-         (find-file . (lambda ()
-                        (when (too-long-file-p)
-                          (aggressive-indent-mode -1)))))
-  :config
-  ;; Disable in some modes
-  (dolist (mode '(gitconfig-mode asm-mode web-mode html-mode css-mode go-mode scala-mode prolog-inferior-mode))
-    (push mode aggressive-indent-excluded-modes))
+;; (use-package aggressive-indent
+;;   :diminish
+;;   :hook ((after-init . global-aggressive-indent-mode)
+;;          ;; NOTE: Disable in large files due to the performance issues
+;;          ;; https://github.com/Malabarba/aggressive-indent-mode/issues/73
+;;          (find-file . (lambda ()
+;;                         (when (too-long-file-p)
+;;                           (aggressive-indent-mode -1)))))
+;;   :config
+;;   ;; Disable in some modes
+;;   (dolist (mode '(gitconfig-mode  asm-mode web-mode html-mode css-mode go-mode scala-mode prolog-inferior-mode))
+;;     (push mode aggressive-indent-excluded-modes))
 
-  ;; Disable in some commands
-  (add-to-list 'aggressive-indent-protected-commands #'delete-trailing-whitespace t)
+;;   ;; Disable in some commands
+;;   (add-to-list 'aggressive-indent-protected-commands #'delete-trailing-whitespace t)
 
-  ;; Be slightly less aggressive in C/C++/C#/Java/Go/Swift
-  (add-to-list 'aggressive-indent-dont-indent-if
-               '(and (derived-mode-p 'c-mode 'c++-mode 'csharp-mode
-                                     'java-mode 'go-mode 'swift-mode)
-                     (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-                                         (thing-at-point 'line))))))
+;;   ;; Be slightly less aggressive in C/C++/C#/Java/Go/Swift
+;;   (add-to-list 'aggressive-indent-dont-indent-if
+;;                '(and (derived-mode-p 'c-mode 'c++-mode 'csharp-mode
+;;                                      'java-mode 'go-mode 'swift-mode)
+;;                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+;;                                          (thing-at-point 'line))))))
 
 ;; Show number of matches in mode-line while searching
 (use-package anzu
@@ -315,13 +315,14 @@
               ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
-;; Hungry deletion (Dont need)
-;; (use-package hungry-delete
-;;   :diminish
-;;   :hook (after-init . global-hungry-delete-mode)
-;;   :init (setq hungry-delete-chars-to-skip " \t\f\v"
-;;               hungry-delete-except-modes
-;;               '(help-mode minibuffer-mode minibuffer-inactive-mode calc-mode)))
+;; Hungry deletion
+(use-package hungry-delete
+  :diminish
+  :hook (after-init . global-hungry-delete-mode)
+  :init (setq hungry-delete-chars-to-skip " \t\f\v"
+              hungry-delete-except-modes
+              '(help-mode minibuffer-mode minibuffer-inactive-mode calc-mode)
+              hungry-delete-join-reluctantly t))
 
 
 ;; Framework for mode-specific buffer indexes
