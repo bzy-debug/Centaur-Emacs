@@ -315,13 +315,14 @@
               ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
 
-;; Hungry deletion
-(use-package hungry-delete
-  :diminish
-  :hook (after-init . global-hungry-delete-mode)
-  :init (setq hungry-delete-chars-to-skip " \t\f\v"
-              hungry-delete-except-modes
-              '(help-mode minibuffer-mode minibuffer-inactive-mode calc-mode)))
+;; Hungry deletion (Dont need)
+;; (use-package hungry-delete
+;;   :diminish
+;;   :hook (after-init . global-hungry-delete-mode)
+;;   :init (setq hungry-delete-chars-to-skip " \t\f\v"
+;;               hungry-delete-except-modes
+;;               '(help-mode minibuffer-mode minibuffer-inactive-mode calc-mode)))
+
 
 ;; Framework for mode-specific buffer indexes
 (use-package imenu

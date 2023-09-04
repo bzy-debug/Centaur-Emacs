@@ -107,9 +107,9 @@
   :if centaur-server
   :hook (after-init . server-mode))
 
-;; History
-(use-package desktop
-  :hook (after-init . desktop-save-mode))
+;; History (Dont need)
+;; (use-package desktop
+;;   :hook (after-init . desktop-save-mode))
 
 (use-package saveplace
   :hook (after-init . save-place-mode))
