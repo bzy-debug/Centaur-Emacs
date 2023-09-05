@@ -201,6 +201,11 @@ Install the doc if it's not installed."
 (use-package v-mode)
 (use-package vimrc-mode)
 
+(use-package paredit
+  :hook ((emacs-lisp-mode . enable-paredit-mode)
+         (lisp-mode . enable-paredit-mode)
+         (scheme-mode . enable-paredit-mode)))
+
 (use-package protobuf-mode
   :hook (protobuf-mode . (lambda ()
                            (setq imenu-generic-expression
