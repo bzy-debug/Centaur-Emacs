@@ -86,11 +86,12 @@
 (setq-default indent-tabs-mode nil)                       ;use space to indent
 (setq-default tab-width 2)                                ;set tab width to 2
 (setq-default cursor-type 'bar)                           ;change cursor type
-
-(mouse-wheel-mode -1)
-(repeat-mode 1)
-(setq display-line-numbers-type 'relative)
 (setq ring-bell-function 'ignore)
+(setq display-line-numbers-type 'relative)
+
+(repeat-mode 1)
+(mouse-wheel-mode -1)
+(global-visual-line-mode 1)
 
 ;; Mail
 ;; (setq message-send-mail-function 'smtpmail-send-it
