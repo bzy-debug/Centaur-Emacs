@@ -126,20 +126,17 @@
 
 (defcustom centaur-theme-alist
   '((default . ef-light)
-    (pro     . doom-monokai-pro)
-    (dark    . doom-vibrant)
-    (light   . doom-one-light)
-    (warm    . doom-solarized-light)
-    (cold    . doom-palenight)
-    (day     . doom-tomorrow-day)
-    (night   . doom-tomorrow-night))
+    (dark    . ef-dark)
+    (light   . ef-light)
+    (day     . ef-day)
+    (night   . ef-night))
   "List of themes mapped to internal themes."
   :group 'centaur
   :type '(alist :key-type (symbol :tag "Theme")
                 :value-type (symbol :tag "Internal theme")))
 
-(defcustom centaur-auto-themes '(("8:00"  . doom-one-light)
-				                 ("19:00" . doom-one))
+(defcustom centaur-auto-themes '(("8:00"  . ef-light)
+				                 ("19:00" . ef-dark))
   "List of themes mapped to the time they should be loaded.
 
 The keywords `:sunrise' and `:sunset' can be used for the time
